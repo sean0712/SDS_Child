@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cookandroid.sdschild">
+    package="com.teamProject2.sdschild">
 
     <application
         android:allowBackup="true"
@@ -9,21 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SDSChild">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.teamProject2.sdschild.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".BoardActivity"/>
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".InvestActivity"/>
-        <activity android:name=".JobActivity"/>
-        <activity android:name=".MyPageActivity"/>
-        <activity android:name=".NoticeActivity"/>
-        <activity android:name=".PhotoActivity"/>
+        <activity android:name="com.teamProject2.sdschild.HomeActivity"/>
+        <activity android:name="com.teamProject2.sdschild.BoardActivity"/>
+        <activity android:name="com.teamProject2.sdschild.CalendarActivity"/>
+        <activity android:name="com.teamProject2.sdschild.InvestActivity"/>
+        <activity android:name="com.teamProject2.sdschild.JobActivity"/>
+        <activity android:name="com.teamProject2.sdschild.MyPageActivity"/>
+        <activity android:name="com.teamProject2.sdschild.NoticeActivity"/>
+        <activity android:name="com.teamProject2.sdschild.PhotoActivity"/>
     </application>
 
 </manifest>

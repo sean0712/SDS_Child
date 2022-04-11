@@ -1,4 +1,4 @@
-package com.cookandroid.sdschild;
+package com.teamProject2.sdschild;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity {
 

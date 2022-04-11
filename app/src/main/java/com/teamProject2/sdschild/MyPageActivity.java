@@ -1,4 +1,4 @@
-package com.cookandroid.sdschild;
+package com.teamProject2.sdschild;
 
 import android.os.Bundle;
 
