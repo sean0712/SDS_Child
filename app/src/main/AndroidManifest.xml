@@ -26,6 +26,7 @@
         <activity android:name="com.teamProject2.sdschild.MyPageActivity"/>
         <activity android:name="com.teamProject2.sdschild.NoticeActivity"/>
         <activity android:name="com.teamProject2.sdschild.PhotoActivity"/>
+        <activity android:name="com.teamProject2.sdschild.RegisterActivity"/>
     </application>
 
 </manifest>
