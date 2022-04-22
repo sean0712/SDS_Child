@@ -14,7 +14,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/TextSelected"
+            android:id="@+id/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
@@ -53,6 +53,15 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/BtnAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="7dp"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@android:color/black"
+                android:text="전체"/>
+
+            <Button
                 android:id="@+id/BtnEducation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,15 +87,6 @@
                 android:backgroundTint="@android:color/transparent"
                 android:textColor="@android:color/black"
                 android:text="행사"/>
-
-            <Button
-                android:id="@+id/BtnGeneral"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="7dp"
-                android:backgroundTint="@android:color/transparent"
-                android:textColor="@android:color/black"
-                android:text="일반"/>
 
         </LinearLayout>
 

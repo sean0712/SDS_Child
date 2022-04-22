@@ -1,12 +1,12 @@
 package com.teamProject2.sdschild;
 
-public class Board {
+public class Revenue {
 
     String date;
     String content;
     String amount;
 
-    public Board(){};
+    public Revenue(){};
 
     public String getDate() {
         return date;
@@ -32,7 +32,7 @@ public class Board {
         this.amount = amount;
     }
 
-    public Board(String date, String content, String amount) {
+    public Revenue(String date, String content, String amount) {
         this.date = date;
         this.content = content;
         this.amount = amount;
