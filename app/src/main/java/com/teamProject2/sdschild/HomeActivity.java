@@ -10,28 +10,31 @@ import android.widget.ImageButton;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageButton btn_notice;
-    ImageButton btn_board;
-    ImageButton btn_photo;
-    ImageButton btn_calendar;
-    ImageButton btn_invest;
-    ImageButton btn_job;
-    ImageButton btn_my_page;
+    ImageButton BtnNotice;
+    ImageButton BtnBoard;
+    ImageButton BtnPhoto;
+    ImageButton BtnCalendar;
+    ImageButton BtnInvest;
+    ImageButton BtnJob;
+    ImageButton BtnMyPage;
+    ImageButton BtnMarket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        btn_notice = findViewById(R.id.btn_notice);
-        btn_board = findViewById(R.id.btn_board);
-        btn_photo = findViewById(R.id.btn_photo);
-        btn_calendar = findViewById(R.id.btn_calendar);
-        btn_invest = findViewById(R.id.btn_invest);
-        btn_job = findViewById(R.id.btn_job);
-        btn_my_page = findViewById(R.id.btn_my_page);
+        BtnNotice = findViewById(R.id.BtnNotice);
+        BtnBoard = findViewById(R.id.BtnBoard);
+        BtnPhoto = findViewById(R.id.BtnPhoto);
+        BtnCalendar = findViewById(R.id.BtnCalander);
+        BtnInvest = findViewById(R.id.BtnInvest);
+        BtnJob = findViewById(R.id.BtnJob);
+        BtnMyPage = findViewById(R.id.BtnMyPage);
+        BtnMarket = findViewById(R.id.BtnMarket);
 
-        btn_notice.setOnClickListener(new Button.OnClickListener() {
+
+        BtnNotice.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);
@@ -39,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btn_board.setOnClickListener(new Button.OnClickListener() {
+        BtnBoard.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
@@ -47,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btn_photo.setOnClickListener(new Button.OnClickListener() {
+        BtnPhoto.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PhotoActivity.class);
@@ -55,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btn_calendar.setOnClickListener(new Button.OnClickListener() {
+        BtnCalendar.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
@@ -63,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btn_invest.setOnClickListener(new Button.OnClickListener() {
+        BtnInvest.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), InvestActivity.class);
@@ -71,22 +74,39 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btn_job.setOnClickListener(new Button.OnClickListener() {
+        BtnJob.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), JobActivity.class);
+                if(User.job.equals("Revenue")) {
+                    Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
+                    startActivity(intent);
+                }
+                else if (User.job.equals("Wholesaler")) {
+                    Intent intent = new Intent(getApplicationContext(), WholesalerActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), JobActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        BtnMarket.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MarketActivity.class);
                 startActivity(intent);
             }
         });
 
-        btn_my_page.setOnClickListener(new Button.OnClickListener() {
+        BtnMyPage.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(intent);
             }
         });
-
 
     }
 

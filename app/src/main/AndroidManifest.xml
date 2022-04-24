@@ -27,6 +27,12 @@
         <activity android:name="com.teamProject2.sdschild.NoticeActivity"/>
         <activity android:name="com.teamProject2.sdschild.PhotoActivity"/>
         <activity android:name="com.teamProject2.sdschild.RegisterActivity"/>
+        <activity android:name="com.teamProject2.sdschild.MarketActivity"/>
+        <activity android:name="com.teamProject2.sdschild.RevenueActivity"/>
+        <activity android:name="com.teamProject2.sdschild.RevenueAddActivity"/>
+        <activity android:name="com.teamProject2.sdschild.RevenueRegisterActivity"/>
+        <activity android:name="com.teamProject2.sdschild.WholesalerActivity"/>
+        <activity android:name="com.teamProject2.sdschild.WholesalerAddActivity"/>
     </application>
 
 </manifest>
