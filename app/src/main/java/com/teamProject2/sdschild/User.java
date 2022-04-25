@@ -2,7 +2,7 @@ package com.teamProject2.sdschild;
 public class User {
     String id;
     String pw;
-    static String job = "Wholesaler";
+    static String job = "Revenue";
 
     public User(){}
 

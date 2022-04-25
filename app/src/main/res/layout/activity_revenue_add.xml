@@ -89,7 +89,7 @@
             android:text="금액" />
 
         <EditText
-            android:id="@+id/EditAmount"
+            android:id="@+id/EditAbsoluteAmount"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"

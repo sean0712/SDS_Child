@@ -101,7 +101,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/club_list"
+        android:id="@+id/ListRevenue"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_margin="10dp">
