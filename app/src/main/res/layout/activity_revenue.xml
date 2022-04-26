@@ -57,6 +57,7 @@
             android:textColor="@android:color/black"
             android:layout_weight="1"
             android:text="지출 보기"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -70,10 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
-            android:backgroundTint="@android:color/transparent"
-            android:textColor="@android:color/black"
             android:layout_weight="1"
-            android:text="←"/>
+            android:backgroundTint="@android:color/transparent"
+            android:text="←"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:gravity="center"

@@ -41,7 +41,8 @@ public class RevenueAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addRevenue(EditDate.getText().toString(),EditHistory.getText().toString(), EditAbsoluteAmount.getText().toString());
-                onBackPressed();
+                RevenueAddActivity.super.onRestart();
+                finish();
             }
         });
 
