@@ -69,6 +69,8 @@ public class RevenueActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), RevenueEditActivity.class);
+                Object object = adapterView.getAdapter().getItem(i);
+                intent.putExtra("date", object.toString());
                 startActivity(intent);
             }
         });

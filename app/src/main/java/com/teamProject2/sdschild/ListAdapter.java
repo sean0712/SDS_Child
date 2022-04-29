@@ -47,7 +47,7 @@ public class ListAdapter extends BaseAdapter {
 
         Revenue revenue = revenues.get(position);
         txtTitle.setText(revenue.date);
-        txtContent.setText(revenue.content);
+        txtContent.setText(revenue.amount);
 
         return convertView;
     }
