@@ -52,12 +52,9 @@ public class RevenueAddActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 
     public void addRevenue(String date, String history, String amount) {
-//        User user = new User(date,history);
-//        databaseReference.child("zoo").child(date).setValue(user);
         Revenue revenue = new Revenue(date, history, amount);
         databaseReference.child("revenue").child(date).setValue(revenue);
     }

@@ -1,6 +1,8 @@
 package com.teamProject2.sdschild;
 
-public class Revenue {
+import java.io.Serializable;
+
+public class Revenue implements Serializable {
 
     String date;
     String content;
@@ -36,5 +38,16 @@ public class Revenue {
         this.date = date;
         this.content = content;
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("날짜: ");
+        sb.append(getDate()).append("\n");
+        sb.append("내역: ");
+        sb.append(getContent()).append("\n");
+        sb.append("금액: ").append(getAmount());
+        return sb.toString();
     }
 }

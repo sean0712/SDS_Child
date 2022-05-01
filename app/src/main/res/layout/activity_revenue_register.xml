@@ -18,7 +18,7 @@
             android:text="제목"/>
 
         <EditText
-            android:id="@+id/title_et"
+            android:id="@+id/EditTitle"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -117,6 +117,14 @@
         android:layout_marginLeft="2dp"/>
 
     <Button
+        android:id="@+id/BtnPost"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="게시하기"
+        android:backgroundTint="@android:color/holo_orange_light" />
+
+    <Button
         android:id="@+id/BtnCancel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

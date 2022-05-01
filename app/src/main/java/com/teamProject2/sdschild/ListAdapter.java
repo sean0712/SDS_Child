@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListAdapter extends BaseAdapter {
@@ -50,5 +51,15 @@ public class ListAdapter extends BaseAdapter {
         txtContent.setText(revenue.amount);
 
         return convertView;
+    }
+
+    //
+    public void refreshAdapter(ArrayList<Revenue> revenues) {
+
+        this.revenues.clear();
+
+        this.revenues.addAll(revenues);
+
+        notifyDataSetChanged();
     }
 }
