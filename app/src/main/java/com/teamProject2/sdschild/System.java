@@ -6,6 +6,7 @@ public class System {
 //    static String job = "Revenue";
 
     static String date = "2022-05";
+    static Integer boardSequence = 1111;
 
 //    public Date(){}
 //

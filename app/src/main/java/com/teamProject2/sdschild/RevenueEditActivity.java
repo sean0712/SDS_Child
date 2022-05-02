@@ -72,7 +72,7 @@ public class RevenueEditActivity extends AppCompatActivity {
 //                Intent intent = new Intent(getApplicationContext(), RevenueRegisterActivity.class);
 //
 //                startActivity(intent);
-                Intent intent = new Intent(getApplicationContext(), RevenueEditActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RevenueRegisterActivity.class);
                 intent.putExtra("date", revenue);
                 startActivity(intent);
             }

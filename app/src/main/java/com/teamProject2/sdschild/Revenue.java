@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Revenue implements Serializable {
 
+    // String id;
     String date;
     String content;
     String amount;
@@ -40,14 +41,14 @@ public class Revenue implements Serializable {
         this.amount = amount;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("날짜: ");
-        sb.append(getDate()).append("\n");
-        sb.append("내역: ");
-        sb.append(getContent()).append("\n");
-        sb.append("금액: ").append(getAmount());
-        return sb.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("날짜: ");
+//        sb.append(getDate()).append("\n");
+//        sb.append("내역: ");
+//        sb.append(getContent()).append("\n");
+//        sb.append("금액: ").append(getAmount());
+//        return sb.toString();
+//    }
 }

@@ -54,12 +54,12 @@ public class ListAdapter extends BaseAdapter {
     }
 
     //
-    public void refreshAdapter(ArrayList<Revenue> revenues) {
-
-        this.revenues.clear();
-
-        this.revenues.addAll(revenues);
-
-        notifyDataSetChanged();
-    }
+//    public void refreshAdapter(ArrayList<Revenue> revenues) {
+//
+//        this.revenues.clear();
+//
+//        this.revenues.addAll(revenues);
+//
+//        notifyDataSetChanged();
+//    }
 }

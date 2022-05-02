@@ -141,7 +141,7 @@ public class RevenueActivity extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             revenues.clear();
-            for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                 String key = snapshot.getKey();
 //                Revenue revenue = snapshot.getValue(Revenue.class);
 //                revenue.date = key;
