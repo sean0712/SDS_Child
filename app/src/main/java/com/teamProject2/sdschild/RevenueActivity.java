@@ -27,7 +27,6 @@ public class RevenueActivity extends AppCompatActivity {
     Button BtnRecord;
     Button BtnLeft, BtnRight;
     TextView TextDate;
-    String time1;
 
     ListView listView;
     ListAdapter adapter;

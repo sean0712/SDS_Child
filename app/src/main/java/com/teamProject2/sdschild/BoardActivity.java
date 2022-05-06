@@ -93,7 +93,7 @@ public class BoardActivity extends AppCompatActivity {
 //                revenues.add(revenue);
 //                if(key.contains(System.date)) {
                     Board board = snapshot.getValue(Board.class);
-                    board.id = key;
+                    board.title = key;
                     boards.add(board);
 //                }
             }

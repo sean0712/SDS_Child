@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RevenueRegisterActivity extends AppCompatActivity {
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -30,7 +33,8 @@ public class RevenueRegisterActivity extends AppCompatActivity {
 
         EditTitle = findViewById(R.id.EditTitle);
         EditContent = findViewById(R.id.EditContent);
-        EditTitle.setText("[국세청] 세금 게시 (" + revenue.date + ")");
+        String title = "국세청 - 세금 게시 (" + revenue.date + ")";
+        EditTitle.setText(title);
         String content = "세금 게시일: " + revenue.date + "\n\n남은 세금: " + " 00 미소 \n\n" + "작성자: "+ User.name;
         EditContent.setText(content);
 
@@ -39,18 +43,20 @@ public class RevenueRegisterActivity extends AppCompatActivity {
         BtnRegister.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addBoard((System.boardSequence++).toString(), User.name, "revenue", content, System.date);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = new Date();
+                String time1 = simpleDateFormat.format(date);
+                addBoard(title, User.name, "revenue", content, time1);
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
                 startActivity(intent);
             }
         });
-
     }
 
-    public void addBoard(String id, String author, String type, String content, String date) {
+    public void addBoard(String title, String author, String type, String content, String date) {
 //        Revenue revenue = new Revenue(date, history, amount);
 //        databaseReference.child("revenue").child(date).setValue(revenue);
-        Board board = new Board(id, author, type, content, date);
-        databaseReference.child("board").child(id.toString()).setValue(board);
+        Board board = new Board(title, author, type, content, date);
+        databaseReference.child("board").child(title.toString()).setValue(board);
     }
 }

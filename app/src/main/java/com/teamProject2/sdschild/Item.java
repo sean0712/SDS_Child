@@ -2,16 +2,18 @@
 
 package com.teamProject2.sdschild;
 
-public class Item {
+import java.io.Serializable;
 
-    int poster;
+public class Item implements Serializable {
+
+    String poster;
     String name;
     String amount;
     String count;
 
     public Item() {}
 
-    public int getPoster() {
+    public String getPoster() {
         return poster;
     }
 
@@ -27,7 +29,7 @@ public class Item {
         return count;
     }
 
-    public void setPoster(int poster) {
+    public void setPoster(String poster) {
         this.poster = poster;
     }
 
@@ -43,7 +45,7 @@ public class Item {
         this.count = count;
     }
 
-    public Item(int poster, String name, String amount, String count) {
+    public Item(String poster, String name, String amount, String count) {
         this.poster = poster;
         this.name = name;
         this.amount = amount;

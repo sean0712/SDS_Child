@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class BoardListAdapter extends BaseAdapter {
-    List<Board> boards;
+public class ItemListAdapter extends BaseAdapter {
+    List<Item> items;
     Context context;
     LayoutInflater inflater;
 
-    public BoardListAdapter(List<Board> boards, Context context) {
-        this.boards = boards;
+    public ItemListAdapter(List<Item> items, Context context) {
+        this.items = items;
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -23,12 +23,12 @@ public class BoardListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return boards.size();
+        return items.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return boards.get(position);
+        return items.get(position);
     }
 
     @Override
@@ -45,9 +45,9 @@ public class BoardListAdapter extends BaseAdapter {
         TextView txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
         TextView txtContent = (TextView) convertView.findViewById(R.id.txtContent);
 
-        Board board = boards.get(position);
-        txtTitle.setText(board.title);
-        txtContent.setText(board.date);
+        Item item = items.get(position);
+        txtTitle.setText(item.name);
+        txtContent.setText(item.amount);
 
         return convertView;
     }

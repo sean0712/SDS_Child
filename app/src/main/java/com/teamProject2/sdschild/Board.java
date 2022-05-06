@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Board implements Serializable {
 
-    String id;
+    String title;
     String author;
     String type;
     String content;
@@ -12,8 +12,8 @@ public class Board implements Serializable {
 
     public Board(){};
 
-    public String getId() {
-        return id;
+    public String getTitle() {
+        return title;
     }
 
     public String getAuthor() {
@@ -32,8 +32,8 @@ public class Board implements Serializable {
         return date;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setAuthor(String author) {
@@ -52,8 +52,8 @@ public class Board implements Serializable {
         this.date = date;
     }
 
-    public Board(String id, String author, String type, String content, String date) {
-        this.id = id;
+    public Board(String title, String author, String type, String content, String date) {
+        this.title = title;
         this.author = author;
         this.type = type;
         this.content = content;

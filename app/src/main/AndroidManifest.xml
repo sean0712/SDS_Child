@@ -33,6 +33,7 @@
         <activity android:name="com.teamProject2.sdschild.RevenueRegisterActivity"/>
         <activity android:name="com.teamProject2.sdschild.WholesalerActivity"/>
         <activity android:name="com.teamProject2.sdschild.WholesalerAddActivity"/>
+        <activity android:name="com.teamProject2.sdschild.WholesalerEditActivity"/>
         <activity android:name="com.teamProject2.sdschild.RevenueEditActivity"/>
     </application>
 

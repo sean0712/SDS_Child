@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/club_list_search"
+        android:id="@+id/ListItem"
         android:layout_width="match_parent"
         android:layout_height="430dp"
         android:layout_margin="10dp">
