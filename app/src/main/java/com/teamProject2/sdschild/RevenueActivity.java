@@ -20,20 +20,41 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RevenueActivity extends AppCompatActivity {
 
     Button BtnRecord;
     Button BtnLeft, BtnRight;
+    Button BtnAll, BtnIncome, BtnExpenditure;
     TextView TextDate;
+    TextView TextAmount;
 
     ListView listView;
-    ListAdapter adapter;
+    RevenueListAdapter adapter;
     List<Revenue> revenues = new ArrayList<>();
 
     FirebaseDatabase database;
     DatabaseReference revenueRef;
+
+    Integer totalAmount;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        listView.requestLayout(); //
+        adapter.notifyDataSetChanged(); //
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        listView.requestLayout(); //
+        adapter.notifyDataSetChanged(); //
+        startActivity(getIntent());
+        finish();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +62,7 @@ public class RevenueActivity extends AppCompatActivity {
         setContentView(R.layout.activity_revenue);
 
         TextDate = findViewById(R.id.TextDate);
+        TextAmount = findViewById(R.id.TextAmount);
         //
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM");
         //
@@ -78,7 +100,7 @@ public class RevenueActivity extends AppCompatActivity {
         });
 
         listView = findViewById(R.id.ListRevenue);
-        adapter = new ListAdapter(revenues, this);
+        adapter = new RevenueListAdapter(revenues, this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,6 +109,7 @@ public class RevenueActivity extends AppCompatActivity {
                 Object object = adapterView.getAdapter().getItem(i);
 //                intent.putExtra("date", (Bundle) object);
                 intent.putExtra("date", (Revenue) object);
+                System.amount = totalAmount;
                 startActivity(intent);
             }
         });
@@ -115,10 +138,17 @@ public class RevenueActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
-                System.date = "2022-04";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-");
+                Date date = new Date();
+                String time1 = simpleDateFormat.format(date);
+                System.month--;
+                time1 = time1 + "0" + System.month;
+                System.date = time1;
 //                startActivity(intent);
-                finish();
+//                finish();
                 startActivity(getIntent());
+                finish();
+
             }
         });
 
@@ -128,10 +158,26 @@ public class RevenueActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
-                System.date = "2022-06";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-");
+                Date date = new Date();
+                String time1 = simpleDateFormat.format(date);
+                System.month++;
+                time1 = time1 + "0" + System.month;
+                System.date = time1;
 //                startActivity(intent);
-                finish();
+//                finish();
                 startActivity(getIntent());
+                finish();
+
+            }
+        });
+
+        BtnAll = findViewById(R.id.BtnAll);
+
+        BtnAll.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
@@ -140,6 +186,7 @@ public class RevenueActivity extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             revenues.clear();
+            totalAmount = 0;
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                 String key = snapshot.getKey();
 //                Revenue revenue = snapshot.getValue(Revenue.class);
@@ -149,8 +196,11 @@ public class RevenueActivity extends AppCompatActivity {
                     Revenue revenue = snapshot.getValue(Revenue.class);
                     revenue.date = key;
                     revenues.add(revenue);
+                    totalAmount = totalAmount + Integer.parseInt(revenue.amount);
                 }
             }
+            TextAmount.setText("총 금액: " + totalAmount + "미소");
+
             listView.requestLayout(); //
             adapter.notifyDataSetChanged(); //
         }

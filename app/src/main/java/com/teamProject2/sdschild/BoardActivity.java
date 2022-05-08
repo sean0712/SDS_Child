@@ -63,7 +63,8 @@ public class BoardActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                listView.requestLayout();// 1
+                adapter.notifyDataSetChanged(); // 1
             }
         });
 
@@ -73,9 +74,9 @@ public class BoardActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), RevenueEditActivity.class);
+                Intent intent = new Intent(getApplicationContext(), BoardViewActivity.class);
                 Object object = adapterView.getAdapter().getItem(i);
-                intent.putExtra("date", (Revenue) object);
+                intent.putExtra("board", (Board) object);
                 startActivity(intent);
             }
         });

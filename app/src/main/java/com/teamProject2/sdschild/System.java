@@ -7,6 +7,8 @@ public class System {
 
     static String date = "2022-05";
     static Integer boardSequence = 1111;
+    static Integer month = 5;
+    static Integer amount = 0;
 
 //    public Date(){}
 //

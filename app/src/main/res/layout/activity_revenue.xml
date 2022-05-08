@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:textColor="@android:color/black"
-            android:text="총 잔액: 00미소"/>
+            android:text="총 금액: 00미소"/>
 
     </LinearLayout>
 

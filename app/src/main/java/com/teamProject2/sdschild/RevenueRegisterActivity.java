@@ -30,12 +30,13 @@ public class RevenueRegisterActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Revenue revenue = (Revenue) intent.getSerializableExtra("date");
+//        String totalAmountString = intent.getStringExtra("totalAmountString");
 
         EditTitle = findViewById(R.id.EditTitle);
         EditContent = findViewById(R.id.EditContent);
         String title = "국세청 - 세금 게시 (" + revenue.date + ")";
         EditTitle.setText(title);
-        String content = "세금 게시일: " + revenue.date + "\n\n남은 세금: " + " 00 미소 \n\n" + "작성자: "+ User.name;
+        String content = "세금 게시일: " + revenue.date + "\n\n이번 달 세금: " + System.amount +"미소 \n\n" + "작성자: "+ User.name;
         EditContent.setText(content);
 
         BtnRegister = findViewById(R.id.BtnRegister);

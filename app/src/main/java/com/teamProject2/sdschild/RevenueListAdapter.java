@@ -10,12 +10,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends BaseAdapter {
+public class RevenueListAdapter extends BaseAdapter {
     List<Revenue> revenues;
     Context context;
     LayoutInflater inflater;
 
-    public ListAdapter(List<Revenue> revenues, Context context){
+    public RevenueListAdapter(List<Revenue> revenues, Context context){
         this.revenues = revenues;
         this.context = context;
         this.inflater = (LayoutInflater) context. getSystemService(Context.LAYOUT_INFLATER_SERVICE);
