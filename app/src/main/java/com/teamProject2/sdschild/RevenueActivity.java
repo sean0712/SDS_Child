@@ -40,21 +40,31 @@ public class RevenueActivity extends AppCompatActivity {
 
     Integer totalAmount;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        listView.requestLayout(); //
-        adapter.notifyDataSetChanged(); //
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        listView.requestLayout(); //
+//        adapter.notifyDataSetChanged(); //
+//    }
+//
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        listView.requestLayout(); //
+//        adapter.notifyDataSetChanged(); //
+//        startActivity(getIntent());
+//        finish();
+//    }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        listView.requestLayout(); //
-        adapter.notifyDataSetChanged(); //
-        startActivity(getIntent());
-        finish();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+////        listView.requestLayout(); //
+////        adapter.notifyDataSetChanged(); //
+////        startActivity(getIntent());
+////        finish();
+//        adapter.refreshAdapter((ArrayList<Revenue>) revenues);
+//    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,24 +90,24 @@ public class RevenueActivity extends AppCompatActivity {
 
         revenueRef.addValueEventListener(postListener);
 
-        revenueRef.child("revenue").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                revenues.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Revenue revenue = snapshot.getValue(Revenue.class);
-                    revenues.add(revenue);
-                }
-                listView.requestLayout();//
-                adapter.notifyDataSetChanged();
+//        revenueRef.child("revenue").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                revenues.clear();
+//                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Revenue revenue = snapshot.getValue(Revenue.class);
+//                    revenues.add(revenue);
+//                }
+////                listView.requestLayout();//
+//                adapter.notifyDataSetChanged();
 //                adapter.refreshAdapter((ArrayList<Revenue>) revenues);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         listView = findViewById(R.id.ListRevenue);
         adapter = new RevenueListAdapter(revenues, this);
@@ -201,7 +211,7 @@ public class RevenueActivity extends AppCompatActivity {
             }
             TextAmount.setText("총 금액: " + totalAmount + "미소");
 
-            listView.requestLayout(); //
+//            listView.requestLayout(); //
             adapter.notifyDataSetChanged(); //
         }
 

@@ -39,24 +39,24 @@ public class MarketActivity extends AppCompatActivity {
 
         marketRef.addValueEventListener(postListener);
 
-        marketRef.child("market").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                items.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Item item = snapshot.getValue(Item.class);
-                    items.add(item);
-                }
-                listView.requestLayout();//
-                adapter.notifyDataSetChanged();
-//                adapter.refreshAdapter((ArrayList<Revenue>) revenues);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        marketRef.child("market").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                items.clear();
+//                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Item item = snapshot.getValue(Item.class);
+//                    items.add(item);
+//                }
+//                listView.requestLayout();//
+//                adapter.notifyDataSetChanged();
+////                adapter.refreshAdapter((ArrayList<Revenue>) revenues);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         listView = findViewById(R.id.ListItem);
         adapter = new ItemListAdapter(items, this);

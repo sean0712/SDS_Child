@@ -48,25 +48,25 @@ public class BoardActivity extends AppCompatActivity {
 
         boardRef.addValueEventListener(postListener);
 
-        boardRef.child("board").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                boards.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Board board = snapshot.getValue(Board.class);
-                    boards.add(board);
-                }
-                listView.requestLayout();//
-                adapter.notifyDataSetChanged();
-//                adapter.refreshAdapter((ArrayList<Revenue>) revenues);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                listView.requestLayout();// 1
-                adapter.notifyDataSetChanged(); // 1
-            }
-        });
+//        boardRef.child("board").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                boards.clear();
+//                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Board board = snapshot.getValue(Board.class);
+//                    boards.add(board);
+//                }
+//                listView.requestLayout();//
+//                adapter.notifyDataSetChanged();
+////                adapter.refreshAdapter((ArrayList<Revenue>) revenues);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                listView.requestLayout();// 1
+//                adapter.notifyDataSetChanged(); // 1
+//            }
+//        });
 
         listView = findViewById(R.id.ListBoard);
         adapter = new BoardListAdapter(boards, this);
