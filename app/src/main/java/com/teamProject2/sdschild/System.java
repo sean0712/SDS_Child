@@ -9,6 +9,7 @@ public class System {
     static Integer boardSequence = 1111;
     static Integer month = 5;
     static Integer amount = 0;
+    static String search = " ";
 
 //    public Date(){}
 //

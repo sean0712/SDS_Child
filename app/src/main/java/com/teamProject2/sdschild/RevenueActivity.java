@@ -193,11 +193,33 @@ public class RevenueActivity extends AppCompatActivity {
         });
 
         BtnAll = findViewById(R.id.BtnAll);
-
         BtnAll.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.amount = 0;
+                startActivity(getIntent());
+                finish();
+            }
+        });
 
+        BtnIncome = findViewById(R.id.BtnIncome);
+        BtnIncome.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.amount = 1;
+                startActivity(getIntent());
+                finish();
+            }
+        });
+
+
+        BtnExpenditure = findViewById(R.id.BtnExpenditure);
+        BtnExpenditure.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.amount = -1;
+                startActivity(getIntent());
+                finish();
             }
         });
     }
@@ -214,12 +236,32 @@ public class RevenueActivity extends AppCompatActivity {
 //                revenues.add(revenue);
                 if (key.contains(System.date)) {
                     Revenue revenue = snapshot.getValue(Revenue.class);
-                    revenue.date = key;
-                    revenues.add(revenue);
-                    totalAmount = totalAmount + Integer.parseInt(revenue.amount);
+//                    if(Integer.parseInt(revenue.amount))
+                    if (System.amount == 0) {
+                        revenue.date = key;
+                        revenues.add(revenue);
+                        totalAmount = totalAmount + Integer.parseInt(revenue.amount);
+                    }
+                    else if (System.amount == 1) {
+                        if(Integer.parseInt(revenue.amount) > 0) {
+                            revenue.date = key;
+                            revenues.add(revenue);
+                            totalAmount = totalAmount + Integer.parseInt(revenue.amount);
+                        }
+                    }
+                    else if (System.amount == -1) {
+                        if(Integer.parseInt(revenue.amount) < 0) {
+                            revenue.date = key;
+                            revenues.add(revenue);
+                            totalAmount = totalAmount + Integer.parseInt(revenue.amount);
+                        }
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(),"범위가 벗어났습니다",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-            TextAmount.setText("총 금액: " + totalAmount + "미소");
+            TextAmount.setText(System.month + "월 총 변동량: " + totalAmount + "미소");
 
 //            listView.requestLayout(); //
             adapter.notifyDataSetChanged(); //

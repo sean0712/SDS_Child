@@ -47,8 +47,8 @@ public class RevenueListAdapter extends BaseAdapter {
         TextView txtContent = (TextView)convertView.findViewById(R.id.txtContent);
 
         Revenue revenue = revenues.get(position);
-        txtTitle.setText(revenue.date);
-        txtContent.setText(revenue.amount);
+        txtTitle.setText("날짜: " + revenue.date);
+        txtContent.setText("미소 변동량: " + revenue.amount);
 
         return convertView;
     }

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:textColor="@android:color/black"
-            android:text="총 금액: 00미소"/>
+            android:text="총 변동량: 00미소"/>
 
     </LinearLayout>
 
@@ -122,6 +122,14 @@
             android:text="기록하기"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:layout_marginRight="2dp"/>
+
+        <Button
+            android:id="@+id/BtnPost"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:text="게시하기"
+            android:backgroundTint="@android:color/holo_orange_light" />
 
     </LinearLayout>
 

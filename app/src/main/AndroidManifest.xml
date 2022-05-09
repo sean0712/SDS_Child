@@ -42,6 +42,7 @@
         <activity android:name="com.teamProject2.sdschild.PostActivity"/>
         <activity android:name=".PostAddActivity"/>
         <activity android:name=".PostSelectActivity"/>
+        <activity android:name="com.teamProject2.sdschild.MarketEditActivity"/>
     </application>
 
 </manifest>

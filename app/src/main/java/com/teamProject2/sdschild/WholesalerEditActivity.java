@@ -86,7 +86,7 @@ public class WholesalerEditActivity extends AppCompatActivity {
 //                Intent intent = new Intent(getApplicationContext(), RevenueRegisterActivity.class);
 //                intent.putExtra("date", revenue);
                 deleteWarehouse(EditName.getText().toString());
-                addMarket("URL", EditName.getText().toString(), EditAmount.getText().toString(), EditCount.getText().toString());
+                addMarket(item.poster, EditName.getText().toString(), EditAmount.getText().toString(), EditCount.getText().toString());
                 Intent intent = new Intent(getApplicationContext(), MarketActivity.class);
             }
         });

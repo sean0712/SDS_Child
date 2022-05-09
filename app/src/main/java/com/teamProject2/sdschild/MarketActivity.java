@@ -64,7 +64,7 @@ public class MarketActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), WholesalerEditActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MarketEditActivity.class);
                 Object object = adapterView.getAdapter().getItem(i);
                 intent.putExtra("item", (Item) object);
                 startActivity(intent);
