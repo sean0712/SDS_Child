@@ -37,6 +37,11 @@
         <activity android:name="com.teamProject2.sdschild.RevenueEditActivity"/>
         <activity android:name="com.teamProject2.sdschild.BoardViewActivity"/>
         <activity android:name="com.teamProject2.sdschild.WeightActivity"/>
+        <activity android:name="com.teamProject2.sdschild.DisinfectActivity"/>
+        <activity android:name="com.teamProject2.sdschild.FoodActivity"/>
+        <activity android:name="com.teamProject2.sdschild.PostActivity"/>
+        <activity android:name=".PostAddActivity"/>
+        <activity android:name=".PostSelectActivity"/>
     </application>
 
 </manifest>

@@ -86,6 +86,10 @@ public class HomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), WholesalerActivity.class);
                     startActivity(intent);
                 }
+                else if (User.job.equals("Post")) {
+                    Intent intent = new Intent(getApplicationContext(), PostActivity.class);
+                    startActivity(intent);
+                }
                 else {
                     Intent intent = new Intent(getApplicationContext(), JobActivity.class);
                     startActivity(intent);
