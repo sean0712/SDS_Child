@@ -61,7 +61,7 @@ public class WholesalerEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                editRevenue(EditDate.getText().toString(),EditHistory.getText().toString(), EditAmount.getText().toString());
-                editWarehouse("URL", EditName.getText().toString(), EditAmount.getText().toString(), EditCount.getText().toString());
+                editWarehouse(item.poster, EditName.getText().toString(), EditAmount.getText().toString(), EditCount.getText().toString());
                 WholesalerEditActivity.super.onRestart();
                 finish();
             }

@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -151,13 +152,18 @@ public class RevenueActivity extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-");
                 Date date = new Date();
                 String time1 = simpleDateFormat.format(date);
-                System.month--;
-                time1 = time1 + "0" + System.month;
-                System.date = time1;
+                if (System.month != 1) {
+                    System.month--;
+                    time1 = time1 + "0" + System.month;
+                    System.date = time1;
 //                startActivity(intent);
 //                finish();
-                startActivity(getIntent());
-                finish();
+                    startActivity(getIntent());
+                    finish();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"기록이 없습니다", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -171,14 +177,18 @@ public class RevenueActivity extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-");
                 Date date = new Date();
                 String time1 = simpleDateFormat.format(date);
-                System.month++;
-                time1 = time1 + "0" + System.month;
-                System.date = time1;
+                if (System.month != 6) {
+                    System.month++;
+                    time1 = time1 + "0" + System.month;
+                    System.date = time1;
 //                startActivity(intent);
 //                finish();
-                startActivity(getIntent());
-                finish();
-
+                    startActivity(getIntent());
+                    finish();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"기록이 없습니다", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -202,7 +212,7 @@ public class RevenueActivity extends AppCompatActivity {
 //                Revenue revenue = snapshot.getValue(Revenue.class);
 //                revenue.date = key;
 //                revenues.add(revenue);
-                if(key.contains(System.date)) {
+                if (key.contains(System.date)) {
                     Revenue revenue = snapshot.getValue(Revenue.class);
                     revenue.date = key;
                     revenues.add(revenue);

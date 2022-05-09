@@ -36,6 +36,7 @@
         <activity android:name="com.teamProject2.sdschild.WholesalerEditActivity"/>
         <activity android:name="com.teamProject2.sdschild.RevenueEditActivity"/>
         <activity android:name="com.teamProject2.sdschild.BoardViewActivity"/>
+        <activity android:name="com.teamProject2.sdschild.WeightActivity"/>
     </application>
 
 </manifest>

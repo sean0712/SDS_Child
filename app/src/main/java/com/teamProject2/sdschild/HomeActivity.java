@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton BtnJob;
     ImageButton BtnMyPage;
     ImageButton BtnMarket;
+    ImageButton BtnWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnJob = findViewById(R.id.BtnJob);
         BtnMyPage = findViewById(R.id.BtnMyPage);
         BtnMarket = findViewById(R.id.BtnMarket);
-
+        BtnWeight = findViewById(R.id.BtnWeight);
 
         BtnNotice.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -104,6 +105,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        BtnWeight.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WeightActivity.class);
                 startActivity(intent);
             }
         });
