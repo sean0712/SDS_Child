@@ -36,6 +36,18 @@ public class BoardActivity extends AppCompatActivity {
     DatabaseReference boardRef;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.search = " ";
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
@@ -89,7 +101,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = " ";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -98,7 +113,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = "학사";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -107,7 +125,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = "국세청";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -116,7 +137,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = "행사";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -127,7 +151,11 @@ public class BoardActivity extends AppCompatActivity {
                 java.lang.System.out.println(keyCode);
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     System.search = EditSearch.getText().toString();
-                    startActivity(getIntent());
+                    Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
                     finish();
                     return true;
                 } else return false;

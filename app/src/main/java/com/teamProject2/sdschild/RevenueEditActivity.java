@@ -44,7 +44,7 @@ public class RevenueEditActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Revenue revenue = (Revenue) intent.getSerializableExtra("date");
 
-        EditDate.setText(revenue.date);
+        EditDate.setText(revenue.date); // "2022-02-22"
         EditHistory.setText(revenue.content);
         EditAmount.setText(revenue.amount);
 

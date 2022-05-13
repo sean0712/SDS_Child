@@ -67,6 +67,20 @@ public class RevenueActivity extends AppCompatActivity {
 //        adapter.refreshAdapter((ArrayList<Revenue>) revenues);
 //    }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.amount = 0;
+        System.month = 5;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, 0);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,7 +172,10 @@ public class RevenueActivity extends AppCompatActivity {
                     System.date = time1;
 //                startActivity(intent);
 //                finish();
-                    startActivity(getIntent());
+                    Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
+//                    startActivity(getIntent());
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
                     finish();
                 }
                 else {
@@ -183,7 +200,10 @@ public class RevenueActivity extends AppCompatActivity {
                     System.date = time1;
 //                startActivity(intent);
 //                finish();
-                    startActivity(getIntent());
+                    Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
+//                    startActivity(getIntent());
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
                     finish();
                 }
                 else {
@@ -197,7 +217,10 @@ public class RevenueActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.amount = 0;
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -207,7 +230,10 @@ public class RevenueActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.amount = 1;
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -218,7 +244,10 @@ public class RevenueActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.amount = -1;
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), RevenueActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -235,7 +264,7 @@ public class RevenueActivity extends AppCompatActivity {
 //                revenue.date = key;
 //                revenues.add(revenue);
                 if (key.contains(System.date)) {
-                    Revenue revenue = snapshot.getValue(Revenue.class);
+                    Revenue revenue = snapshot.getValue(Revenue.class); //
 //                    if(Integer.parseInt(revenue.amount))
                     if (System.amount == 0) {
                         revenue.date = key;

@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ItemListAdapter extends BaseAdapter {
+public class SnackListAdapter extends BaseAdapter {
     List<Item> items;
     Context context;
     LayoutInflater inflater;
 
-    public ItemListAdapter(List<Item> items, Context context) {
+    public SnackListAdapter(List<Item> items, Context context) {
         this.items = items;
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -39,15 +39,18 @@ public class ItemListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item, null);
+            convertView = inflater.inflate(R.layout.snack_list_item, null);
         }
 
-        TextView txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
-        TextView txtContent = (TextView) convertView.findViewById(R.id.txtContent);
+
+
+        TextView txtTitle = (TextView) convertView.findViewById(R.id.TextTitle);
+//        TextView txtContent = (TextView) convertView.findViewById(R.id.txtContent);
 
         Item item = items.get(position);
+
         txtTitle.setText(item.name);
-        txtContent.setText(item.amount);
+//        txtContent.setText(item.amount);
 
         return convertView;
     }

@@ -40,7 +40,7 @@ public class RevenueListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
-            convertView = inflater.inflate(R.layout.list_item, null);
+            convertView = inflater.inflate(R.layout.revenue_list_item, null);
         }
 
         TextView txtTitle = (TextView)convertView.findViewById(R.id.txtTitle);

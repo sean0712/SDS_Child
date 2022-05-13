@@ -25,7 +25,7 @@ public class WholesalerActivity extends AppCompatActivity {
     Button BtnAdd;
 
     ListView listView;
-    ItemListAdapter adapter;
+    SnackListAdapter adapter;
     List<Item> items = new ArrayList<>();
 
     FirebaseDatabase database;
@@ -61,7 +61,7 @@ public class WholesalerActivity extends AppCompatActivity {
 //        });
 
         listView = findViewById(R.id.ListItem);
-        adapter = new ItemListAdapter(items, this);
+        adapter = new SnackListAdapter(items, this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
