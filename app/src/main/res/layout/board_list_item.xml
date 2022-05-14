@@ -11,11 +11,19 @@
         android:textSize="24sp"
         android:textStyle="normal|bold" />
 
-    <TextView
-        android:text="TextView"
-        android:gravity="right"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtContent" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="TextView"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtContent" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BoardActivity extends AppCompatActivity {
@@ -184,8 +186,15 @@ public class BoardActivity extends AppCompatActivity {
                     boards.add(board);
                 }
             }
-            listView.requestLayout(); //
+            Collections.sort(boards, new Comparator<Board>() {
+                @Override
+                public int compare(Board c1, Board c2) {
+                    return c1.getDate().compareTo(c2.getDate());
+                }
+            });
+//            listView.requestLayout(); //
             adapter.notifyDataSetChanged(); //
+            listView.requestLayout(); //
         }
 
         @Override

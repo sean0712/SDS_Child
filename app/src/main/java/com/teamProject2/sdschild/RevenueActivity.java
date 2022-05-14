@@ -29,6 +29,7 @@ public class RevenueActivity extends AppCompatActivity {
     Button BtnRecord;
     Button BtnLeft, BtnRight;
     Button BtnAll, BtnIncome, BtnExpenditure;
+    Button BtnPost;
     TextView TextDate;
     TextView TextAmount;
 
@@ -150,13 +151,20 @@ public class RevenueActivity extends AppCompatActivity {
             }
         });
 
+        BtnPost = findViewById(R.id.BtnPost);
+
 //        BtnPost.setOnClickListener(new Button.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
+////                Intent intent = new Intent(getApplicationContext(), RevenueRegisterActivity.class);
+////
+////                startActivity(intent);
 //                Intent intent = new Intent(getApplicationContext(), RevenueRegisterActivity.class);
+//                intent.putExtra("date", revenue);
 //                startActivity(intent);
 //            }
 //        });
+
         BtnLeft = findViewById(R.id.BtnLeft);
 
         BtnLeft.setOnClickListener(new Button.OnClickListener() {
@@ -290,7 +298,7 @@ public class RevenueActivity extends AppCompatActivity {
                     }
                 }
             }
-            TextAmount.setText(System.month + "월 총 변동량: " + totalAmount + "미소");
+            TextAmount.setText(System.month + "월 변동량: " + totalAmount + "미소");
 
 //            listView.requestLayout(); //
             adapter.notifyDataSetChanged(); //

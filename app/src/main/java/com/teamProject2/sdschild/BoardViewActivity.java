@@ -33,7 +33,7 @@ public class BoardViewActivity extends AppCompatActivity {
 
         EditTitle = findViewById(R.id.EditTitle);
         EditContent = findViewById(R.id.EditContent);
-        String title = "국세청 - 세금 게시 (" + board.title + ")";
+        String title = board.title;
         EditTitle.setText(title);
 //        String content = "세금 게시일: " + revenue.date + "\n\n남은 세금: " + " 00 미소 \n\n" + "작성자: "+ User.name;
         String content = board.content;
