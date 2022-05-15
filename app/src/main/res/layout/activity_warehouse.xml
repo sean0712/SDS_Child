@@ -30,17 +30,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/date_btn"
+            android:id="@+id/BtnCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
             android:backgroundTint="@android:color/transparent"
             android:textColor="@android:color/black"
             android:layout_weight="1"
-            android:text="날짜 △"/>
+            android:text="개수 △"/>
 
         <Button
-            android:id="@+id/amount_btn"
+            android:id="@+id/BtnAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
@@ -50,7 +50,7 @@
             android:text="금액 △" />
 
         <Button
-            android:id="@+id/name_btn"
+            android:id="@+id/BtnName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"

@@ -39,7 +39,7 @@ public class BoardListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item, null);
+            convertView = inflater.inflate(R.layout.board_list_item, null);
         }
 
         TextView txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
@@ -47,7 +47,7 @@ public class BoardListAdapter extends BaseAdapter {
 
         Board board = boards.get(position);
         txtTitle.setText(board.title);
-        txtContent.setText(board.date);
+        txtContent.setText("작성자: " + board.author);
 
         return convertView;
     }

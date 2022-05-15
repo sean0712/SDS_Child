@@ -4,7 +4,7 @@ buildscript {
         // Check that you have the following line (if not, add it):
         google()    // Google's Maven repository
         jcenter()
-
+//        mavenCentral() // 페이스북 로그인
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.0"

@@ -34,9 +34,9 @@ public class RevenueRegisterActivity extends AppCompatActivity {
 
         EditTitle = findViewById(R.id.EditTitle);
         EditContent = findViewById(R.id.EditContent);
-        String title = "국세청 - 세금 게시 (" + revenue.date + ")";
+        String title = "(" + revenue.date + ")" + " 국세청 - 세금 게시";
         EditTitle.setText(title);
-        String content = "세금 게시일: " + revenue.date + "\n\n이번 달 세금: " + System.amount +"미소 \n\n" + "작성자: "+ User.name;
+        String content = "세금 변동 게시일: " + revenue.date + "\n\n변동량: " + revenue.amount +"미소 \n\n내용: " + revenue.content +"\n\n" + "작성자: "+ User.name;
         EditContent.setText(content);
 
         BtnRegister = findViewById(R.id.BtnRegister);
@@ -48,6 +48,9 @@ public class RevenueRegisterActivity extends AppCompatActivity {
                 Date date = new Date();
                 String time1 = simpleDateFormat.format(date);
                 addBoard(title, User.name, "revenue", content, time1);
+//                addBoard(title, User.name, "revenue", content, "2022-05-31");
+//                addBoard("(2022-05-01) 학사 - 중간고사 공지", "김학사", "academic", "중간고사는 6월 8일입니다", "2022-05-01");
+//                addBoard("(2022-05-02) 행사 - 교내 행사 공지", "김행사", "event", "코로나로 인해 행사는 취소되었습니다", "2022-05-02");
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
                 startActivity(intent);
             }
