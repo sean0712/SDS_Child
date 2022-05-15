@@ -1,6 +1,7 @@
 package com.teamProject2.sdschild;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,7 +45,16 @@ public class RevenueEditActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Revenue revenue = (Revenue) intent.getSerializableExtra("date");
 
-        EditDate.setText(revenue.date);
+//        if (Integer.parseInt(revenue.amount) < 0) {
+//            BtnExpenditure.setTextColor(Color.parseColor("#FF0000"));
+//            BtnIncome.setTextColor(Color.parseColor("#AAAAAA"));
+//        }
+//        else if (Integer.parseInt(revenue.amount) > 0){
+//            BtnIncome.setTextColor(Color.parseColor("#FF0000"));
+//            BtnExpenditure.setTextColor(Color.parseColor("#AAAAAA"));
+//        }
+
+        EditDate.setText(revenue.date); // "2022-02-22"
         EditHistory.setText(revenue.content);
         EditAmount.setText(revenue.amount);
 

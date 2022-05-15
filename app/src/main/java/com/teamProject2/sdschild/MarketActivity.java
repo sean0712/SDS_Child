@@ -22,7 +22,7 @@ import java.util.List;
 public class MarketActivity extends AppCompatActivity {
 
     ListView listView;
-    ItemListAdapter adapter;
+    SnackListAdapter adapter;
     List<Item> items = new ArrayList<>();
 
     FirebaseDatabase database;
@@ -59,7 +59,7 @@ public class MarketActivity extends AppCompatActivity {
 //        });
 
         listView = findViewById(R.id.ListItem);
-        adapter = new ItemListAdapter(items, this);
+        adapter = new SnackListAdapter(items, this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

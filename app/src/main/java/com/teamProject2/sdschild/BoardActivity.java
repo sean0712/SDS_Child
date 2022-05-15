@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BoardActivity extends AppCompatActivity {
@@ -34,6 +36,18 @@ public class BoardActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference boardRef;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.search = " ";
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, 0);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,7 +103,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = " ";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -98,7 +115,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = "학사";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -107,7 +127,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = "국세청";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -116,7 +139,10 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.search = "행사";
-                startActivity(getIntent());
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
                 finish();
             }
         });
@@ -127,7 +153,11 @@ public class BoardActivity extends AppCompatActivity {
                 java.lang.System.out.println(keyCode);
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     System.search = EditSearch.getText().toString();
-                    startActivity(getIntent());
+                    Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
+//                    startActivity(getIntent());
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
                     finish();
                     return true;
                 } else return false;
@@ -156,8 +186,15 @@ public class BoardActivity extends AppCompatActivity {
                     boards.add(board);
                 }
             }
-            listView.requestLayout(); //
+            Collections.sort(boards, new Comparator<Board>() {
+                @Override
+                public int compare(Board c1, Board c2) {
+                    return c1.getDate().compareTo(c2.getDate());
+                }
+            });
+//            listView.requestLayout(); //
             adapter.notifyDataSetChanged(); //
+            listView.requestLayout(); //
         }
 
         @Override

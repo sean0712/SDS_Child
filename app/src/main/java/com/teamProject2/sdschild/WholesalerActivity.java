@@ -18,14 +18,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class WholesalerActivity extends AppCompatActivity {
 
     Button BtnAdd;
+    Button BtnCount, BtnAmount, BtnName;
 
     ListView listView;
-    ItemListAdapter adapter;
+    SnackListAdapter adapter;
     List<Item> items = new ArrayList<>();
 
     FirebaseDatabase database;
@@ -61,7 +65,7 @@ public class WholesalerActivity extends AppCompatActivity {
 //        });
 
         listView = findViewById(R.id.ListItem);
-        adapter = new ItemListAdapter(items, this);
+        adapter = new SnackListAdapter(items, this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,7 +91,28 @@ public class WholesalerActivity extends AppCompatActivity {
             }
         });
 
+        BtnCount = findViewById(R.id.BtnCount);
+
+        BtnCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(items, new Comparator<Item>() {
+                    @Override
+                    public int compare(Item i1, Item i2) {
+                        return i1.getCount().compareTo(i2.getCount());
+                    }
+                });
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        BtnAmount = findViewById(R.id.BtnAmount);
+
+        BtnCount = findViewById(R.id.BtnCount);
+
     }
+
+
     ValueEventListener postListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
