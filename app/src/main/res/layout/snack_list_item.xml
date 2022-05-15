@@ -9,9 +9,10 @@
         android:layout_height="100dp">
 
         <ImageView
+            android:layout_marginLeft="20dp"
             android:id="@+id/ImageViewSnack"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/weight"
             android:layout_alignParentLeft="true"
             android:scaleType="centerCrop"/>
@@ -20,10 +21,28 @@
             android:id="@+id/TextTitle"
             android:layout_width="match_parent"
             android:layout_height="99dp"
-            android:text=" "
+            android:text="TextTitle"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_marginLeft="150dp" />
+
+        <TextView
+            android:id="@+id/TextAmount"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:text="TextAmount"
+            android:textSize="30sp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:id="@+id/TextCount"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:text="TextCount"
+            android:textSize="30sp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="60dp" />
 
         <View
             android:layout_below="@+id/TextTitle"

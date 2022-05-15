@@ -23,7 +23,7 @@
             android:layout_width="320dp"
             android:layout_height="200dp"
             android:scaleType="fitXY"
-            android:src="@drawable/add_snack"/>
+            android:src="@drawable/add_snack_icon"/>
 
     </LinearLayout>
 

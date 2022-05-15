@@ -40,7 +40,7 @@ public class BoardActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        System.search = " ";
+        System.board_search = " ";
     }
 
     @Override
@@ -102,7 +102,7 @@ public class BoardActivity extends AppCompatActivity {
         BtnAll.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.search = " ";
+                System.board_search = " ";
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
 //                    startActivity(getIntent());
                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -114,7 +114,7 @@ public class BoardActivity extends AppCompatActivity {
         BtnEducation.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.search = "학사";
+                System.board_search = "학사";
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
 //                    startActivity(getIntent());
                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -126,7 +126,7 @@ public class BoardActivity extends AppCompatActivity {
         BtnRevenue.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.search = "국세청";
+                System.board_search = "국세청";
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
 //                    startActivity(getIntent());
                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -138,7 +138,7 @@ public class BoardActivity extends AppCompatActivity {
         BtnEvent.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.search = "행사";
+                System.board_search = "행사";
                 Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
 //                    startActivity(getIntent());
                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -152,7 +152,7 @@ public class BoardActivity extends AppCompatActivity {
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 java.lang.System.out.println(keyCode);
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    System.search = EditSearch.getText().toString();
+                    System.board_search = EditSearch.getText().toString();
                     Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
 //                    startActivity(getIntent());
                     intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -180,7 +180,7 @@ public class BoardActivity extends AppCompatActivity {
 //2                   board.title = key;
 //3                   boards.add(board);
 //                }
-                if (key.contains(System.search)) {
+                if (key.contains(System.board_search)) {
                     Board board = snapshot.getValue(Board.class);
                     board.date = key;
                     boards.add(board);
