@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
             android:layout_weight="1"
-            android:text="매수하기"
+            android:text="매도하기"
             android:textSize="24sp" />
 
         <TextView
@@ -30,21 +30,21 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/want_buy_amount"
+            android:id="@+id/want_sell_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="원하는 매수량을 입력하세요"
+            android:hint="원하는 매도량을 입력하세요"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/geolaeBtn"
+            android:id="@+id/denounceBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="주문하기" />
 
         <TextView
             android:id="@+id/sampletext"

@@ -12,11 +12,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_addPost"
+            android:id="@+id/btn_addFood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="과제 추가" />
+            android:text="날짜 추가" />
 
 
 
@@ -29,22 +29,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/post_homeworktextview"
+            android:id="@+id/btn_foodDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="과제명"
+            android:text="날짜"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/post_dateTextVIew"
+            android:id="@+id/btn_foodTeam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="마감기한"
+            android:text="조장"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -56,7 +56,7 @@
         android:orientation="horizontal">
 
         <ListView
-            android:id="@+id/mainListView"
+            android:id="@+id/foodListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

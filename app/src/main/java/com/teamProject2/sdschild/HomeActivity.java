@@ -1,8 +1,10 @@
 package com.teamProject2.sdschild;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnMyPage = findViewById(R.id.BtnMyPage);
         BtnMarket = findViewById(R.id.BtnMarket);
         BtnWeight = findViewById(R.id.BtnWeight);
+        Invest_DB_Control controler=new Invest_DB_Control();
 
         BtnNotice.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -68,10 +71,21 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         BtnInvest.setOnClickListener(new Button.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), InvestActivity.class);
                 startActivity(intent);
+
+                //테스트용 데이터 넣기
+                controler.Add_Std_information("김동현", "1", 100, 10, 1);
+                controler.Add_Std_information("최윤재", "2", 100, 10, 1);
+                controler.Add_Std_information("염다빈", "3", 100, 10, 1);
+                controler.Add_Std_information("이시안", "4", 100, 10, 1);
+                controler.Add_Std_information("홍길동", "5", 100, 10, 1);
+
+                controler.Add_basic_information(controler.Get_Time2(), 10, 0, 0);
+                controler.Add_List_information(0,0,0,0,0,0);
             }
         });
 
@@ -88,6 +102,14 @@ public class HomeActivity extends AppCompatActivity {
                 }
                 else if (User.job.equals("Post")) {
                     Intent intent = new Intent(getApplicationContext(), PostActivity.class);
+                    startActivity(intent);
+                }
+                else if (User.job.equals("Food")) {
+                    Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
+                    startActivity(intent);
+                }
+                else if (User.job.equals("Disinfect")) {
+                    Intent intent = new Intent(getApplicationContext(), DisinfectActivity.class);
                     startActivity(intent);
                 }
                 else {
