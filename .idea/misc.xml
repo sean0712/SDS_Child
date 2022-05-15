@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.39814814814814814" />
+        <entry key="app/src/main/res/layout/activity_dis_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_dis_mod.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_disinfect.xml" value="0.3138409760201935" />
+        <entry key="app/src/main/res/layout/activity_disinfect_add.xml" value="0.438788388725284" />
+        <entry key="app/src/main/res/layout/activity_food_add.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_food_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_food_main_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_food_modify.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_job_disinfect.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_job_food.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_job_food_calendar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_job_post.xml" value="0.3885416666666667" />
+        <entry key="app/src/main/res/layout/activity_job_post_add.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_job_post_homework_item.xml" value="0.41944444444444445" />
+        <entry key="app/src/main/res/layout/activity_job_post_item_list.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/activity_job_post_recycle_item.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/activity_job_post_select.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_job_selected_post.xml" value="0.34814814814814815" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.14629629629629629" />
+        <entry key="app/src/main/res/layout/activity_revenue.xml" value="0.30185185185185187" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.335" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

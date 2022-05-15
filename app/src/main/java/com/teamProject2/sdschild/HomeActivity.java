@@ -90,6 +90,14 @@ public class HomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), PostActivity.class);
                     startActivity(intent);
                 }
+                else if (User.job.equals("Food")) {
+                    Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
+                    startActivity(intent);
+                }
+                else if (User.job.equals("Disinfect")) {
+                    Intent intent = new Intent(getApplicationContext(), DisinfectActivity.class);
+                    startActivity(intent);
+                }
                 else {
                     Intent intent = new Intent(getApplicationContext(), JobActivity.class);
                     startActivity(intent);
