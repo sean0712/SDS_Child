@@ -1,9 +1,12 @@
 package com.teamProject2.sdschild;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -41,8 +44,11 @@ public class HomeActivity extends AppCompatActivity {
         BtnNotice.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);
+//                startActivity(intent);
+                Intent url = new Intent(Intent.ACTION_VIEW);
+                url.setData(Uri.parse("http://bitgoeul.gen.es.kr/mobile/config/mBoard.php?pid=26"));
+                startActivity(url);
             }
         });
 
@@ -65,8 +71,11 @@ public class HomeActivity extends AppCompatActivity {
         BtnCalendar.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+//                startActivity(intent);
+                Intent url = new Intent(Intent.ACTION_VIEW);
+                url.setData(Uri.parse("http://bitgoeul.gen.es.kr/mobile/config/mCalendar.php?pid=11"));
+                startActivity(url);
             }
         });
 
@@ -130,8 +139,20 @@ public class HomeActivity extends AppCompatActivity {
         BtnMyPage.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
+//                startActivity(intent);
+                final String[] versionArray = new String[] {  "국세청", "도매상인", "우체부", "급식당번", "방역요원"  };
+                AlertDialog.Builder dlg = new AlertDialog.Builder(HomeActivity.this);
+                dlg.setTitle("시연용 마이페이지");
+                dlg.setIcon(R.mipmap.ic_launcher);
+                dlg.setSingleChoiceItems(versionArray, 0,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 여기에 구현
+                            }
+                        });
+                dlg.setPositiveButton("닫기", null);
+                dlg.show();
             }
         });
 

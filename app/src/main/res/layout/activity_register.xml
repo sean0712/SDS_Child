@@ -1,26 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:gravity="center"
+    android:padding="30dp" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="#000000"
+        android:text="아이디 (필수 사항: *)" />
 
     <EditText
-        android:id="@+id/edit1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"></EditText>
+        android:id="@+id/EditID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:hint="사용할 아이디를 입력하세요" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:text="비밀번호 *" />
 
     <EditText
-        android:id="@+id/edit2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"></EditText>
+        android:id="@+id/EditPW"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="textPassword"
+        android:hint="사용할 비밀번호를 입력하세요" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:text="이름 *" />
+
+    <EditText
+        android:id="@+id/EditName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:hint="이름을 입력하세요" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:text="번호 *" />
+
+    <EditText
+        android:id="@+id/EditNum"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:hint="번호을 입력하세요" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:text="이메일 (선택 사항)" />
+
+    <EditText
+        android:id="@+id/EditMail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:hint="이메일을 입력하세요" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/BtnSubmit"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn"
-        android:text="추가하기" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:text="제출하기"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@android:color/transparent" />
 
 </LinearLayout>

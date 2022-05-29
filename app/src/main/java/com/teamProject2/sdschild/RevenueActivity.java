@@ -68,7 +68,6 @@ public class RevenueActivity extends AppCompatActivity {
 //        adapter.refreshAdapter((ArrayList<Revenue>) revenues);
 //    }
 
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
