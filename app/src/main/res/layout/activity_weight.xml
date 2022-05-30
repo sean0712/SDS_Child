@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="오늘 몸무게를 입력해주세요. "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="(소수점 한자리까지)" />
+
+    <EditText
+        android:id="@+id/weight_valuetxt"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="몸무게를 입력하세요"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/weight_setBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="체중계"/>
-
+        android:text="등록하기" />
 </LinearLayout>

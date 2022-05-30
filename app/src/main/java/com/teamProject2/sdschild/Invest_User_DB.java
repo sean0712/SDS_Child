@@ -6,6 +6,7 @@ public class Invest_User_DB {
     private int have_miso; //보유 미소
     private int have_num_invest; //보유 주식 수
     private float  average_invest_price; //평단가
+    private String last_update;
 
     public Invest_User_DB(){}
 
@@ -28,6 +29,9 @@ public class Invest_User_DB {
     //현재 평단가
     public float getAverage_invest_price(){return average_invest_price;}
     public void setAverage_invest_price(float average_invest_price){this.average_invest_price=average_invest_price;}
+
+    public String getLast_update(){return last_update;}
+    public void setLast_update(String last_update){this.last_update = last_update;}
 
 
     public Invest_User_DB(String std_name, String std_num, int have_miso, int have_num_invest, float average_invest_price){

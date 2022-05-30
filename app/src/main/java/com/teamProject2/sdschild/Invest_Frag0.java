@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -28,7 +30,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Invest_Frag0#newInstance} factory method to
@@ -47,7 +53,16 @@ public class Invest_Frag0 extends Fragment {
     Dialog dialog;
     Context mContext;
     Invest_DB_Control controler = new Invest_DB_Control();
-    private Object Context;
+    TextView day_price_txt;
+    TextView have_miso_txt;
+    TextView have_invest_txt;
+
+
+    ArrayList<Entry> values = new ArrayList<>();
+
+
+
+
 
 
     public static Invest_Frag0 newInstance(){
@@ -77,37 +92,45 @@ public class Invest_Frag0 extends Fragment {
         mContext= container.getContext();
 
         controler.GetContext(mContext);
-        //************************************차트관련***************************************//
-        ArrayList<Entry> values = new ArrayList<>();
-/*        for (int i = 0; i < 10; i++) {
 
-            float val = (float) (Math.random() * 10);
-            values.add(new Entry(i, val));
-        }*/
 
-        values.add(new Entry(0, 0));
-        values.add(new Entry(1, 1));
-        values.add(new Entry(2, 2));
-        values.add(new Entry(3, 3));
-        values.add(new Entry(4, 4));
-        values.add(new Entry(5, 5));
+        //차트설정
+        databaseReference.child("day_information").limitToLast(10).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int i=0;
+                   for(DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-        LineDataSet set1;
-        set1 = new LineDataSet(values, "DataSet 1");
+                       Invest_Basic_DB basic_db=snapshot.getValue(Invest_Basic_DB.class);
+                       Log.i("test", String.valueOf(basic_db.getDay_price() +"/"+ String.valueOf(i)));
+                       values.add(new Entry(i,(float)basic_db.getDay_price()));
+                       i++;
+                       if(i>10){break;}
+                   }
+                LineDataSet set1;
+                set1 = new LineDataSet(values, "DataSet 1");
 
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(set1); // add the data sets
+                ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+                dataSets.add(set1); // add the data sets
 
-        // create a data object with the data sets
-        LineData data = new LineData(dataSets);
+                // create a data object with the data sets
+                LineData data = new LineData(dataSets);
+                // black lines and points
+                set1.setColor(Color.BLACK);
+                set1.setCircleColor(Color.BLACK);
 
-        // black lines and points
-        set1.setColor(Color.BLACK);
-        set1.setCircleColor(Color.BLACK);
+                chart.notifyDataSetChanged();
+                chart.invalidate();
 
-        // set data
-        chart.setData(data);
-        //************************************차트관련***************************************//
+                // set data
+                chart.setData(data);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //테스트용 데이터 넣기
         view.findViewById(R.id.sampleBtn).setOnClickListener(new View.OnClickListener() {
@@ -143,9 +166,6 @@ public class Invest_Frag0 extends Fragment {
         });
 
 
-
-
-
         view.findViewById(R.id.purchaseBtn).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -162,28 +182,58 @@ public class Invest_Frag0 extends Fragment {
         return view;
     }
 
+    //매수하기 다이어로그
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void Show_Buy_Dialog(){
-        //다이얼로그
         dialog=new Dialog(mContext);
         dialog.requestWindowFeature(getActivity().getWindow().FEATURE_NO_TITLE);//fragment에선 getWindow바로 못써서 getActivity사용해야됨
         dialog.setContentView(R.layout.dialog_geolae);
+
+        day_price_txt=dialog.findViewById(R.id.day_price);
+        have_miso_txt=dialog.findViewById(R.id.have_miso);
+
+        databaseReference.child("day_information").child(controler.Get_Time2()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Invest_Basic_DB basic_db=dataSnapshot.getValue(Invest_Basic_DB.class);
+                day_price_txt.setText("오늘 주식 가격 : "+String.valueOf(basic_db.getDay_price())+"미소");
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        databaseReference.child("invest_std_information").child(User.stdNum).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Invest_User_DB std=dataSnapshot.getValue(Invest_User_DB.class);
+                have_miso_txt.setText("보유 미소 : "+String.valueOf(std.getHave_miso())+"미소");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         dialog.show();
+
 
         dialog.findViewById(R.id.geolaeBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText want_buy_amount_text;
-                int want_buy_amount;
 
+
+                int want_buy_amount;
                 //사용자의 입력을 받아 want_buy_amount에 저장
-                //문자열을 입력받으면 예외를 발생해야하는데 일단 패스
                 want_buy_amount_text = dialog.findViewById(R.id.want_buy_amount);
                 if(want_buy_amount_text.getText().toString()==""){
                     Toast.makeText(mContext.getApplicationContext(),"구입을 원하는 개수를 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     want_buy_amount = Integer.parseInt(want_buy_amount_text.getText().toString());
-                    controler.Buy_Invest(want_buy_amount,"1");
+                    controler.Buy_Invest(want_buy_amount, User.stdNum);
+                    dialog.dismiss();
 
                 }
             }
@@ -191,11 +241,40 @@ public class Invest_Frag0 extends Fragment {
         });
     }
 
+    //매도하기 다이어로그
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void Show_Sell_Dialog(){
         //다이얼로그
         dialog=new Dialog(mContext);
         dialog.requestWindowFeature(getActivity().getWindow().FEATURE_NO_TITLE);//fragment에선 getWindow바로 못써서 getActivity사용해야됨
         dialog.setContentView(R.layout.dialog_denounce);
+        day_price_txt=dialog.findViewById(R.id.day_price);
+        have_invest_txt=dialog.findViewById(R.id.dialog_have_invest);
+
+        databaseReference.child("day_information").child(controler.Get_Time2()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Invest_Basic_DB basic_db=dataSnapshot.getValue(Invest_Basic_DB.class);
+                day_price_txt.setText("오늘 주식 가격 : "+String.valueOf(basic_db.getDay_price())+"미소");
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        databaseReference.child("invest_std_information").child(User.stdNum).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Invest_User_DB std=dataSnapshot.getValue(Invest_User_DB.class);
+                have_invest_txt.setText("보유 주식 수 : "+String.valueOf(std.getHave_num_invest())+"개");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         dialog.show();
 
         dialog.findViewById(R.id.denounceBtn).setOnClickListener(new View.OnClickListener() {
@@ -205,14 +284,14 @@ public class Invest_Frag0 extends Fragment {
                 int want_sell_amount;
 
                 //사용자의 입력을 받아 want_sell_amount에 저장
-                //문자열을 입력받으면 예외를 발생해야하는데 일단 패스
                 want_sell_amount_text = dialog.findViewById(R.id.want_sell_amount);
                 if(want_sell_amount_text.getText().toString()==""){
                     Toast.makeText(mContext.getApplicationContext(),"판매를 원하는 개수를 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     want_sell_amount = Integer.parseInt(want_sell_amount_text.getText().toString());
-                    controler.Sell_Invest(want_sell_amount,"1");
+                    controler.Sell_Invest(want_sell_amount,User.stdNum);
+                    dialog.dismiss();
 
                 }
             }

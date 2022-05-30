@@ -6,6 +6,7 @@ public class User {
     static String name = "김명지";
     static String stdNum = "1";
 
+
     public User(){}
 
     public String getID() {

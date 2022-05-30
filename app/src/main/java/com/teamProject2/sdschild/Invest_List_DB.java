@@ -7,7 +7,7 @@ public class Invest_List_DB {
     private int trade_amount; //거래량
     private float trade_gain; //거래 손익
     private int trade_count; //오늘 몇번째 거래인지
-    //private int total_trade_count; //오늘 총 거래는 몇번인지
+    private String trade_day; //거래날짜
 
     public Invest_List_DB(){}
 
@@ -26,15 +26,16 @@ public class Invest_List_DB {
     public int  getTrade_count(){return trade_count;}
     public void setTrade_count(int trade_count){this.trade_count=trade_count;}
 
-    //public int getTotal_trade_count(){return total_trade_count;}
-    //public void setTotal_trade_count(int total_trade_count){this.total_trade_count=total_trade_count;}
+    public String getTrade_day(){return trade_day;}
+    public void setTrade_day(String trade_day){this.trade_day=trade_day;}
 
-    public Invest_List_DB(int trade_type, int trade_price, int trade_amount, float trade_gain, int trade_count){
+    public Invest_List_DB(int trade_type, int trade_price, int trade_amount, float trade_gain, int trade_count, String trade_day){
         this.trade_type=trade_type;
         this.trade_price=trade_price;
         this.trade_amount=trade_amount;
         this.trade_gain=trade_gain;
         this.trade_count=trade_count;
+        this.trade_day=trade_day;
     }
 
 

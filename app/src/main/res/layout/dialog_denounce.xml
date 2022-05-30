@@ -26,7 +26,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dialog_have_invest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:textSize="18sp" />
 
         <EditText
@@ -37,7 +45,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="원하는 매도량을 입력하세요"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/denounceBtn"
@@ -46,12 +54,7 @@
             android:layout_weight="1"
             android:text="주문하기" />
 
-        <TextView
-            android:id="@+id/sampletext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+
 
     </LinearLayout>
 
