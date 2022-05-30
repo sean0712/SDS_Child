@@ -68,7 +68,6 @@ public class RevenueActivity extends AppCompatActivity {
 //        adapter.refreshAdapter((ArrayList<Revenue>) revenues);
 //    }
 
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -277,6 +276,7 @@ public class RevenueActivity extends AppCompatActivity {
                     if (System.amount == 0) {
                         revenue.date = key;
                         revenues.add(revenue);
+
                         totalAmount = totalAmount + Integer.parseInt(revenue.amount);
                     }
                     else if (System.amount == 1) {

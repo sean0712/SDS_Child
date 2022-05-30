@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
@@ -23,8 +25,6 @@ public class SnackListAdapter extends BaseAdapter {
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
-
-
 
     @Override
     public int getCount() {
@@ -49,7 +49,8 @@ public class SnackListAdapter extends BaseAdapter {
 
         ImageView ImageViewSnack = (ImageView) convertView.findViewById(R.id.ImageViewSnack);
         TextView txtTitle = (TextView) convertView.findViewById(R.id.TextTitle);
-//        TextView txtContent = (TextView) convertView.findViewById(R.id.txtContent);
+        TextView TextAmount = (TextView) convertView.findViewById(R.id.TextAmount);
+        TextView TextCount = (TextView) convertView.findViewById(R.id.TextCount);
 
         Item item = items.get(position);
 
@@ -59,8 +60,9 @@ public class SnackListAdapter extends BaseAdapter {
         Drawable reviewImage = Drawable.createFromStream(is, "reviewImage");
         ImageViewSnack.setImageDrawable(reviewImage);
 
-        txtTitle.setText(item.name);
-//        txtContent.setText(item.amount);
+        txtTitle.setText("이름: " + item.name);
+        TextAmount.setText("가격: " + item.amount);
+        TextCount.setText("개수: " + item.count);
 
         return convertView;
     }
