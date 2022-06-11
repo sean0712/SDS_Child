@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -63,8 +64,9 @@ public class HomeActivity extends AppCompatActivity {
         BtnPhoto.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PhotoActivity.class);
-                startActivity(intent);
+                Intent url = new Intent(Intent.ACTION_VIEW);
+                url.setData(Uri.parse("http://bitgoeul.gen.es.kr/mobile/config/mBoard.php?pid=10"));
+                startActivity(url);
             }
         });
 
@@ -141,17 +143,45 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
 //                startActivity(intent);
-                final String[] versionArray = new String[] {  "국세청", "도매상인", "우체부", "급식당번", "방역요원"  };
+                final String[] jobs = new String[] {  "Revenue", "Wholesaler", "Post", "Food", "Disinfect"  };
+
+                final int[] selectedIndex = {0};
+
+                if (User.job.equals("Revenue")) {
+                    selectedIndex[0] = 0;
+                }
+                else if (User.job.equals("Wholesaler")) {
+                    selectedIndex[0] = 1;
+                }
+                else if (User.job.equals("Post")) {
+                    selectedIndex[0] = 2;
+                }
+                else if (User.job.equals("Food")) {
+                    selectedIndex[0] = 3;
+                }
+                else {
+                    selectedIndex[0] = 4;
+                }
+
+
                 AlertDialog.Builder dlg = new AlertDialog.Builder(HomeActivity.this);
                 dlg.setTitle("시연용 마이페이지");
                 dlg.setIcon(R.mipmap.ic_launcher);
-                dlg.setSingleChoiceItems(versionArray, 0,
+                dlg.setSingleChoiceItems(jobs, selectedIndex[0],
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                // 여기에 구현
+                                selectedIndex[0] = which;
                             }
                         });
-                dlg.setPositiveButton("닫기", null);
+                dlg.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(HomeActivity.this, jobs[selectedIndex[0]], Toast.LENGTH_SHORT).show();
+                                User.job = jobs[selectedIndex[0]];
+                            }
+                        });
+                dlg.setNegativeButton("취소", null);
                 dlg.show();
             }
         });

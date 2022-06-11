@@ -1,9 +1,11 @@
 package com.teamProject2.sdschild;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText EditID;
     EditText EditPW;
+    EditText dlgEditCode;
+    View dialogView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,8 +144,52 @@ public class MainActivity extends AppCompatActivity {
         BtnRegister.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(intent);
+
+//                AlertDialog.Builder dlg = new AlertDialog.Builder(HomeActivity.this);
+//                dlg.setTitle("시연용 마이페이지");
+//                dlg.setIcon(R.mipmap.ic_launcher);
+//                dlg.setSingleChoiceItems(jobs, selectedIndex[0],
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                selectedIndex[0] = which;
+//                            }
+//                        });
+//                dlg.setPositiveButton("확인",
+//                        new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                Toast.makeText(HomeActivity.this, jobs[selectedIndex[0]], Toast.LENGTH_SHORT).show();
+//                                User.job = jobs[selectedIndex[0]];
+//                            }
+//                        });
+//                dlg.setNegativeButton("취소", null);
+//                dlg.show();
+
+                dialogView = (View) View.inflate(MainActivity.this, R.layout.dialog_authentication, null);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+//                dlg.setTitle("코드 인증");
+//                dlg.setIcon(R.mipmap.ic_launcher_round);
+                dlg.setView(dialogView);
+                dlg.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dlgEditCode = (EditText) dialogView.findViewById(R.id.DlgEditCode);
+                                if (dlgEditCode.getText().toString().equals(System.authentication_code)) {
+                                    Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Toast.makeText(MainActivity.this, "가입 코드가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                dlg.setNegativeButton("취소", null);
+                dlg.show();
+
+
+//                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+//                startActivity(intent);
             }
         });
     }
