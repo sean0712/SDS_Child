@@ -53,6 +53,7 @@ public class WeightActivity extends AppCompatActivity {
                             else {
                                 databaseReference.child("day_information").child(controler.Get_Time2()).child("day_price").setValue(Integer.valueOf(weight_valuetxt.getText().toString()));
                                 Toast.makeText(WeightActivity.this, "등록이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                         }
                         else{

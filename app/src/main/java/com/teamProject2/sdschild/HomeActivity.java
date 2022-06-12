@@ -140,24 +140,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        BtnInvest.setOnClickListener(new Button.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), InvestActivity.class);
-                startActivity(intent);
-
-                //테스트용 데이터 넣기
-                controler.Add_Std_information("김동현", "1", 100, 10, 1);
-                controler.Add_Std_information("최윤재", "2", 100, 10, 1);
-                controler.Add_Std_information("염다빈", "3", 100, 10, 1);
-                controler.Add_Std_information("이시안", "4", 100, 10, 1);
-                controler.Add_Std_information("홍길동", "5", 100, 10, 1);
-
-                controler.Add_basic_information(controler.Get_Time2(), 10, 0, 0);
-//                controler.Add_List_information(0,0,0,0,0,0);
-            }
-        });
+//        BtnInvest.setOnClickListener(new Button.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.O)
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), InvestActivity.class);
+//                startActivity(intent);
+//
+////                //테스트용 데이터 넣기
+////                controler.Add_Std_information("김동현", "1", 100, 10, 1);
+////                controler.Add_Std_information("최윤재", "2", 100, 10, 1);
+////                controler.Add_Std_information("염다빈", "3", 100, 10, 1);
+////                controler.Add_Std_information("이시안", "4", 100, 10, 1);
+////                controler.Add_Std_information("홍길동", "5", 100, 10, 1);
+////
+////                controler.Add_basic_information(controler.Get_Time2(), 10, 0, 0);
+////                controler.Add_List_information(0,0,0,0,0,0);
+//            }
+//        });
 
         BtnJob.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -202,7 +202,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
 //                startActivity(intent);
-                final String[] jobs = new String[] {  "Revenue", "Wholesaler", "Post", "Food", "Disinfect"  };
+                final String[] jobs = new String[] {  "Revenue", "Wholesaler", "Post", "Food", "Disinfect", "Master"  };
 
                 final int[] selectedIndex = {0};
 
@@ -218,10 +218,12 @@ public class HomeActivity extends AppCompatActivity {
                 else if (User.job.equals("Food")) {
                     selectedIndex[0] = 3;
                 }
-                else {
+                else if (User.job.equals("Disinfect")) {
                     selectedIndex[0] = 4;
                 }
-
+                else if (User.job.equals("Master")) {
+                    selectedIndex[0] = 5;
+                }
 
                 AlertDialog.Builder dlg = new AlertDialog.Builder(HomeActivity.this);
                 dlg.setTitle("시연용 마이페이지");
@@ -248,8 +250,13 @@ public class HomeActivity extends AppCompatActivity {
         BtnWeight.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), WeightActivity.class);
-                startActivity(intent);
+                if (User.job.equals("Master")) {
+                    Intent intent = new Intent(getApplicationContext(), WeightActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(HomeActivity.this, "관리자만 접근할 수 있습니다!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

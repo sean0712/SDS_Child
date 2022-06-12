@@ -48,6 +48,8 @@
             android:inputType="number" />
 
         <Button
+            android:textColor="@android:color/black"
+            android:backgroundTint="@android:color/transparent"
             android:id="@+id/denounceBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

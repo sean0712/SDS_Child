@@ -128,6 +128,8 @@
             android:orientation="horizontal">
 
             <Button
+                android:textColor="@android:color/black"
+                android:backgroundTint="@android:color/transparent"
                 android:id="@+id/purchaseBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
@@ -136,6 +138,8 @@
                 android:text="매수하기" />
 
             <Button
+                android:textColor="@android:color/black"
+                android:backgroundTint="@android:color/transparent"
                 android:id="@+id/sellBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
@@ -152,6 +156,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:visibility="gone"
                 android:id="@+id/sampleBtn"
                 android:layout_width="235dp"
                 android:layout_height="wrap_content"
