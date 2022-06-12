@@ -72,7 +72,7 @@ public class RevenueActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         System.amount = 0;
-        System.month = 5;
+        System.month = 6;
     }
 
     @Override

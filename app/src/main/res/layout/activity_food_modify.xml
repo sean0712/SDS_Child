@@ -311,12 +311,16 @@
         android:orientation="horizontal">
 
         <Button
+            android:textColor="@android:color/black"
+            android:backgroundTint="@android:color/transparent"
             android:id="@+id/btn_modifyFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="수정" />
         <Button
+            android:textColor="@android:color/black"
+            android:backgroundTint="@android:color/transparent"
             android:id="@+id/food_del"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
