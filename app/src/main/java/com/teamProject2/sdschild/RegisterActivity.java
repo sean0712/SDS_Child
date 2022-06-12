@@ -19,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button BtnSubmit;
     EditText EditID, EditPW, EditName, EditNum, EditMail;
     String strID, strPW, strName, strNum, strMail;
+    Invest_DB_Control controler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void addUserInfo(String id, String pw, String job, String name, String stdNum, String mail) {
         User user = new User(id, pw, job, name, stdNum, mail);
         databaseReference.child("User").child(id).setValue(user);
+        controler=new Invest_DB_Control();
+        controler.Add_Std_information(name, stdNum, 100,0, 0);
     }
 
 //    public void addRevenue(String date, String history, String amount) {

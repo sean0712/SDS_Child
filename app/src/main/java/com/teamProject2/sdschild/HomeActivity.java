@@ -77,15 +77,15 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), InvestActivity.class);
                 startActivity(intent);
 
-                //테스트용 데이터 넣기
-                controler.Add_Std_information("김동현", "1", 100, 10, 1);
-                controler.Add_Std_information("최윤재", "2", 100, 10, 1);
-                controler.Add_Std_information("염다빈", "3", 100, 10, 1);
-                controler.Add_Std_information("이시안", "4", 100, 10, 1);
-                controler.Add_Std_information("홍길동", "5", 100, 10, 1);
-
-                controler.Add_basic_information(controler.Get_Time2(), 10, 0, 0);
-                controler.Add_List_information(0,0,0,0,0,0);
+//                //테스트용 데이터 넣기
+//                controler.Add_Std_information("김동현", "1", 100, 10, 1);
+//                controler.Add_Std_information("최윤재", "2", 100, 10, 1);
+//                controler.Add_Std_information("염다빈", "3", 100, 10, 1);
+//                controler.Add_Std_information("이시안", "4", 100, 10, 1);
+//                controler.Add_Std_information("홍길동", "5", 100, 10, 1);
+//
+//                controler.Add_basic_information(controler.Get_Time2(), 10, 0, 0);
+//                controler.Add_List_information(0,0,0,0,0,0);
             }
         });
 
