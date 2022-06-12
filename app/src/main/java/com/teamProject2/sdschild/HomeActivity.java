@@ -1,5 +1,6 @@
 package com.teamProject2.sdschild;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class HomeActivity extends AppCompatActivity {
 
     ImageButton BtnNotice;
@@ -26,6 +33,11 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton BtnMarket;
     ImageButton BtnWeight;
 
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +52,54 @@ public class HomeActivity extends AppCompatActivity {
         BtnMyPage = findViewById(R.id.BtnMyPage);
         BtnMarket = findViewById(R.id.BtnMarket);
         BtnWeight = findViewById(R.id.BtnWeight);
+
         Invest_DB_Control controler=new Invest_DB_Control();
+        //하루에한번 주식 db 업데이트
+        controler.Day_update();
+
+
+
+        // 메소드를 control로 뺄 방법을 생각해보자..
+        BtnInvest.setOnClickListener(new Button.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                databaseReference.child("day_information").child(controler.Get_Time2()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Invest_Basic_DB basic_db;
+                        basic_db = dataSnapshot.getValue(Invest_Basic_DB.class);
+                        if (basic_db.getDay_price() == 0) {
+                            Toast.makeText(HomeActivity.this, "몸무게입력이 완료되지 않았습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), InvestActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+        //하루에한번 basic db 생성
+        databaseReference.child("day_information").child(controler.Get_Time2()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue(Invest_Basic_DB.class)==null){
+                    controler.Add_basic_information(controler.Get_Time2(), 0, 0, 0); //이부분은 다른데로 빼야 할듯
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         BtnNotice.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -96,7 +155,7 @@ public class HomeActivity extends AppCompatActivity {
                 controler.Add_Std_information("홍길동", "5", 100, 10, 1);
 
                 controler.Add_basic_information(controler.Get_Time2(), 10, 0, 0);
-                controler.Add_List_information(0,0,0,0,0,0);
+//                controler.Add_List_information(0,0,0,0,0,0);
             }
         });
 
