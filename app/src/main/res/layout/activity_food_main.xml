@@ -12,6 +12,8 @@
         android:orientation="horizontal">
 
         <Button
+            android:textColor="@android:color/black"
+            android:backgroundTint="@android:color/transparent"
             android:id="@+id/btn_addFood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

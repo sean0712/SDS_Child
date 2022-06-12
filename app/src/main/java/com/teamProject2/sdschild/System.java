@@ -5,15 +5,16 @@ public class System {
 //    String pw;
 //    static String job = "Revenue";
 
-    static String date = "2022-05";
+    static String date = "2022-06";
     static Integer boardSequence = 1111;
-    static Integer month = 5;
+    static Integer month = 6;
     static Integer amount = 0;
     static String board_search = " ";
     static String snack_search = "";
     static int isCounted = 1;
     static int isNamed = 1;
     static int isAmounted = 1;
+    static String authentication_code = "1234";
 
 //    public Date(){}
 //

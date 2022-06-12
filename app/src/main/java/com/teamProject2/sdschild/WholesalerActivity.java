@@ -159,7 +159,7 @@ public class WholesalerActivity extends AppCompatActivity {
                         }
                     });
                     adapter.notifyDataSetChanged();
-                    BtnCount.setText("개수 ▼");
+                    BtnCount.setText("개수 ▲");
                     BtnAmount.setText("금액 △");
                     BtnName.setText("이름 △");
                 }
@@ -172,7 +172,7 @@ public class WholesalerActivity extends AppCompatActivity {
                         }
                     });
                     adapter.notifyDataSetChanged();
-                    BtnCount.setText("개수 ▲");
+                    BtnCount.setText("개수 ▼");
                     BtnAmount.setText("금액 △");
                     BtnName.setText("이름 △");
                 }
