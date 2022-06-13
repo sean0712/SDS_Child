@@ -72,11 +72,8 @@ public class Invest_Frag0 extends Fragment {
 
     /*
         ★★★    투자하기 화면   ★★★
-
     ★★★findViewById 바로 못씀 -> 밑에 함수에선 view.findViewById로 해야됨★★★
     ★★★fragment에선 getWindow() 바로 못써서 getActivity().getWindow()로 사용해야됨★★★
-
-
     */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -227,7 +224,7 @@ public class Invest_Frag0 extends Fragment {
                 int want_buy_amount;
                 //사용자의 입력을 받아 want_buy_amount에 저장
                 want_buy_amount_text = dialog.findViewById(R.id.want_buy_amount);
-                if(want_buy_amount_text.getText().toString()==""){
+                if(want_buy_amount_text.getText().toString().equals("")){
                     Toast.makeText(mContext.getApplicationContext(),"구입을 원하는 개수를 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -285,7 +282,7 @@ public class Invest_Frag0 extends Fragment {
 
                 //사용자의 입력을 받아 want_sell_amount에 저장
                 want_sell_amount_text = dialog.findViewById(R.id.want_sell_amount);
-                if(want_sell_amount_text.getText().toString()==""){
+                if(want_sell_amount_text.getText().toString().equals("")){
                     Toast.makeText(mContext.getApplicationContext(),"판매를 원하는 개수를 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
                 else{
